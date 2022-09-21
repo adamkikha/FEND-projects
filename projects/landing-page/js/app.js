@@ -18,33 +18,56 @@
  * Great to have comments before crucial code sections within the procedure.
 */
 
-/**
- * Define Global Variables
- * 
-*/
+let sections = document.getElementsByTagName("section");
 
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
+function toggleActiveClass(section){
+    if (!section.classList.contains("your-active-class")){
+        document.getElementsByClassName("your-active-class")[0].classList.remove("your-active-class");
+        section.classList.add("your-active-class");
+    }
+}
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
 
-// build the nav
+function buildNavMenu(sections){
+    if(sections.length>0){
+        let doc = document.createDocumentFragment();
+        for (let section of sections){
+            let item = document.createElement("li");
+            item.textContent = section.dataset.nav;
+            item.classList.add("menu__link");
+            doc.appendChild(item);
+        }
+        let navBar = document.getElementById("navbar__list");
+        navBar.appendChild(doc);
+        navBar.addEventListener("click",scrollTo);
+    }
+}
 
 
-// Add class 'active' to section when near top of viewport
+function detectActiveSection(){
+    console.log(document.getElementsByClassName("your-active-class")[0].id);
+    for (let section of sections){
+        let rect = section.getBoundingClientRect();
+        if (rect.y + rect.height >= 300){
+            toggleActiveClass(section);
+            return;    
+        }
+    }
+}
 
 
-// Scroll to anchor ID using scrollTO event
+function scrollTo(event){
+    for (let section of sections){
+        if (event.target.textContent === section.dataset.nav){
+            section.scrollIntoView();
+            toggleActiveClass(section);
+        }
+    }
+}
 
 
 /**
@@ -53,10 +76,7 @@
  * 
 */
 
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
+buildNavMenu(sections);
+document.body.addEventListener("mousewheel",detectActiveSection);
 
 
