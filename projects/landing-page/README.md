@@ -2,12 +2,29 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+- [Landing Page Project](#landing-page-project)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Tasks](#tasks)
+  - [Usage](#usage)
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Introduction
+The starter project has some HTML and CSS styling to display a static version of the Landing Page project.
 
-To get started, open `js/app.js` and start building out the app's functionality
+the goal is to enhance HTML & CSS and JS skills by adding some dynamic features to the page.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Tasks
+- Add a navigation bar dynamically based on number of sections.
+- Adding functionality to navigation items 
+by making them scroll to appropriate section.
+- Assigning `.your-active-class` dynamically based on 
+which section is in the viewport
+
+These tasks required some manipulation of HTML and CSS in addition to
+good understanding of JS and DOM fundamentals 
+
+## Usage
+In addition to being a very good exercise for all-around web dev knowledge,
+
+this project layout can be used as a simple CMS template with basic user interactivity which can be enhanced even further.
