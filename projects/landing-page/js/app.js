@@ -71,7 +71,11 @@ function scrollTo(event){
             let rect = section.getBoundingClientRect();
             // Takes into account the navigation bar height
             // so the section heading can always be visible
-            window.scroll(0,window.scrollY+rect.y-navBarHeight);
+            // also dectates the smooth behavior
+            window.scrollBy({
+                            top: rect.y-navBarHeight,
+                            left: 0,
+                            behavior: "smooth"});
             toggleActiveClass(section);
         }
     }
