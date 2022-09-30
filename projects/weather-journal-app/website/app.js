@@ -6,7 +6,7 @@ const feeling = document.getElementById("feelings");
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+"."+ d.getDate()+"."+ d.getFullYear();
+let newDate = (d.getMonth()+1)+"."+ d.getDate()+"."+ d.getFullYear();
 
 // GET function to fetch api data
 const getData = async (baseUrl,zip,apiKey) =>{
@@ -32,10 +32,8 @@ const postData = async (url,data) =>{
         },
         body: JSON.stringify(data)
     });
-    console.log("here");
     try {
         const newData = await response.json();
-        console.log(newData);
     }catch(error) {
       console.log("error", error);
     }
